@@ -1,0 +1,24 @@
+/// <reference types="cypress" />
+
+import { AjaxLoaderPage } from "../../support/page-objects/AjaxLoaderPage";
+
+const ajaxLoaderPage = new AjaxLoaderPage();
+const ajaxLoaderPageUrl = 'Ajax-Loader/index.html';
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // returning false here prevents Cypress from failing the test
+    return false
+  })
+
+describe('Ajax Loader Page tests', () => {
+
+    before(() => {
+        cy.once('uncaught:exception', () => false);
+        cy.visit('/' + ajaxLoaderPageUrl);
+    });
+
+    it('Wait for page to load and click the button', () => {
+        ajaxLoaderPage.waitForLoaderToBeHidden();
+        ajaxLoaderPage.clickButton();
+    });
+});

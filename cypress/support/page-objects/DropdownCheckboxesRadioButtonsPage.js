@@ -1,10 +1,10 @@
 export class DropDownCheckboxesButtonsPage {
+    dropDownMenuNo = 0;
     elements ={
 
-        dropdownMenus : () => cy.get('#dropdowm-menu%'),
+        dropdownMenus : () => cy.get(`#dropdowm-menu-${this.dropDownMenuNo}`),
         checkbox : () => cy.get('#checkboxes'),
-        radioButton : () => cy.get('#radio-buttons'), // 'input[type="radio"]'
-
+        radioButton : () => cy.get('#radio-buttons'),
 
     }
 
@@ -29,8 +29,13 @@ export class DropDownCheckboxesButtonsPage {
     }
 
     ifRadioButtonChecked(radioButtonValue) {
-        this.elements.radioButton().find(`input[value="${radioButtonValue}"]`).should('be.checked')
+        this.elements.radioButton().find(`input[value="${radioButtonValue}"]`).should('be.checked');
     }
 
+    clickDropdownMenuAndChooseValue(dropDownMenuOption, dropDownValue) {
+        this.dropDownMenuNo = dropDownMenuOption;
+        this.elements.dropdownMenus().select(dropDownValue);
+        this.elements.dropdownMenus().should('have.value', dropDownValue);
+    }
 }
 export default new DropDownCheckboxesButtonsPage();

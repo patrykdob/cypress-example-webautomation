@@ -32,7 +32,24 @@ describe('Dropdown Menu(s), Checkboxe(s) & Radio Button(s) Page tests', () => {
         for (const radiobutton of radiobuttons) {
             dropDownBoxesButtonsPage.checkRadioButton(radiobutton);
             dropDownBoxesButtonsPage.ifRadioButtonChecked(radiobutton);
+        } 
+    });
+
+    it('Pick all options from dropdown menus and check if the choosen value is correct', () => {
+        let firstDropdownOptions = ['java', 'c#', 'python', 'sql'];
+        for (const firstDropdownOption of firstDropdownOptions) {
+            dropDownBoxesButtonsPage.clickDropdownMenuAndChooseValue(1, firstDropdownOption)
         }
-        
+
+        let secondDropdownOptions = ['eclipse', 'maven', 'testng', 'junit'];
+        for (const secondDropdownOption of secondDropdownOptions) {
+            dropDownBoxesButtonsPage.clickDropdownMenuAndChooseValue(2, secondDropdownOption)
+        }
+
+        let thirdDropdownOptions = ['html', 'css', 'javascript', 'jquery'];
+        for (const thirdDropdownOption of thirdDropdownOptions) {
+            dropDownBoxesButtonsPage.clickDropdownMenuAndChooseValue(3, thirdDropdownOption)
+        }
+
     });
 });
