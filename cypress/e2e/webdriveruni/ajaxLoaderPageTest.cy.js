@@ -5,7 +5,7 @@ import { AjaxLoaderPage } from "../../support/page-objects/AjaxLoaderPage";
 const ajaxLoaderPage = new AjaxLoaderPage();
 const ajaxLoaderPageUrl = 'Ajax-Loader/index.html';
 
-Cypress.on('uncaught:exception', (err, runnable) => {
+Cypress.on('uncaught:exception', () => {
     // returning false here prevents Cypress from failing the test
     return false
   })
@@ -13,7 +13,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 describe('Ajax Loader Page tests', () => {
 
     before(() => {
-        cy.once('uncaught:exception', () => false);
         cy.visit('/' + ajaxLoaderPageUrl);
     });
 
