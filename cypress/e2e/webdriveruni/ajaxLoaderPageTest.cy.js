@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { AjaxLoaderPage } from "../../support/page-objects/AjaxLoaderPage";
+import { AjaxLoaderPage } from "../../support/webdriveruni-page-objects/AjaxLoaderPage";
 
 const ajaxLoaderPage = new AjaxLoaderPage();
 const ajaxLoaderPageUrl = 'Ajax-Loader/index.html';

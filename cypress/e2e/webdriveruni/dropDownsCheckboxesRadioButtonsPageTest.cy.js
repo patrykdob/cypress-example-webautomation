@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { DropDownCheckboxesButtonsPage } from "../../support/page-objects/DropdownCheckboxesRadioButtonsPage";
+import { DropDownCheckboxesButtonsPage } from "../../support/webdriveruni-page-objects/DropdownCheckboxesRadioButtonsPage";
 
 const dropDownBoxesButtonsPage = new DropDownCheckboxesButtonsPage();
 const dropdownBoxesButtonsUrl = 'Dropdown-Checkboxes-RadioButtons/index.html';

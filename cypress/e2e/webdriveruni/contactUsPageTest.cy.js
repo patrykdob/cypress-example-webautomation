@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { ContactUsPage } from "../../support/page-objects/ContactUsPage";
+import { ContactUsPage } from "../../support/webdriveruni-page-objects/ContactUsPage";
 
 const contactUsPage = new ContactUsPage();
 const contactUsUrl = 'Contact-Us/contactus.html';

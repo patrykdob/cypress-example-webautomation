@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { AutocompletePage } from "../../support/page-objects/AutocompletePage";
+import { AutocompletePage } from "../../support/webdriveruni-page-objects/AutocompletePage";
 
 const autocompletePage = new AutocompletePage();
 const autocompletePageUrl = 'Autocomplete-TextField/autocomplete-textfield.html';

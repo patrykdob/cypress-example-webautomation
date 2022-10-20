@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { DatepickerPage } from "../../support/page-objects/DatepickerPage";
+import { DatepickerPage } from "../../support/webdriveruni-page-objects/DatepickerPage";
 
 const datepickerPage = new DatepickerPage();
 const datepickerPageUrl = 'Datepicker/index.html';
