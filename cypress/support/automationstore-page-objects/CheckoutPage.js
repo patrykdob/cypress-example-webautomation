@@ -27,16 +27,18 @@ export class CheckoutPage {
         this.elements.guestCheckoutRadio().check();
     }
 
-    typeFirstName(firstName) {
+    typeCustomerInfo(firstName, lastName, email) {
         this.elements.firstNameInput().type(firstName);
-    }
-
-    typeLastName(lastName) {
         this.elements.lastNameInput().type(lastName);
+        this.elements.emailInput().type(email);
     }
 
-    typeEmail(email) {
-        this.elements.emailInput().type(email);
+    typeCustomerAddress(address, cityName, region, zipCode, country) {
+        this.elements.mainAddressInput().type(address);
+        this.elements.cityInput().type(cityName);
+        this.elements.countryDropdown().select(country);
+        this.elements.regionDropdown().select(region);
+        this.elements.zipCodeInput().type(zipCode);
     }
 
     typeMainAddress(address) {
@@ -47,16 +49,8 @@ export class CheckoutPage {
         this.elements.cityInput().type(cityName);
     }
 
-    chooseRegion(region) {
-        this.elements.regionDropdown().select(region);
-    }
-
     typeZipCode(zipCode) {
         this.elements.zipCodeInput().type(zipCode);
-    }
-
-    chooseCountry(country) {
-        this.elements.countryDropdown().select(country);
     }
 
     clickConfirmOrder() {

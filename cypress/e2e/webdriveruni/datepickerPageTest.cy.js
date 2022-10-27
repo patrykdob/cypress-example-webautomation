@@ -11,6 +11,6 @@ describe('Datepicker Page tests', () => {
     });
 
     it('Change the date and check if correct one is set', () => {
-        datepickerPage.changeDate();
+        datepickerPage.changeDate('10', 'May', '2020', '05-10-2020');
     });
 });

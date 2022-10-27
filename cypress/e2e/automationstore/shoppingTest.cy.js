@@ -21,15 +21,13 @@ describe('Shopping Tests', () => {
     });
 
     it('Add items using the search and manually, finalise the order and check if it was successful', () => {
-        homePage.goToApparelAndAccessories();
-        homePage.chooseCategory('Shoes');
+        homePage.goToCategory('Apparel & accessories', 'Shoes');
 
         shopItemPage.chooseItem('Flip Flop');
         shopItemPage.chooseSize();
         shopItemPage.addItemToCart();
 
-        homePage.goToApparelAndAccessories();
-        homePage.chooseCategory('T-shirts');
+        homePage.goToCategory('Apparel & accessories', 'T-shirts');
 
         shopItemPage.chooseItem('Baseball')
         shopItemPage.addItemToCart();
@@ -39,14 +37,8 @@ describe('Shopping Tests', () => {
 
         checkoutPage.checkoutAsGuest();
         checkoutPage.clickContinue();
-        checkoutPage.typeFirstName('Tester');
-        checkoutPage.typeLastName('Testowy');
-        checkoutPage.typeEmail('tester@testowy.com');
-        checkoutPage.typeMainAddress('Testerska 1');
-        checkoutPage.typeCity('Testowo');
-        checkoutPage.chooseCountry('Poland');
-        checkoutPage.chooseRegion('Pomorskie');
-        checkoutPage.typeZipCode('12-345');
+        checkoutPage.typeCustomerInfo('Tester', 'Testowy', 'tester@testowy.com');
+        checkoutPage.typeCustomerAddress('Testerska 1', 'Testowo', 'Pomorskie', '12-345', 'Poland');
         checkoutPage.clickContinue();
         checkoutPage.clickConfirmOrder();
 
@@ -54,16 +46,14 @@ describe('Shopping Tests', () => {
 
     });
 
-    it('Add item to cart, checkout and check validation for address', () => {
+    it.only('Add item to cart, checkout and check validation for address', () => {
         homePage.searchForItem('dove');
         shopItemPage.addItemToCart();
 
         // try to continue with empty address
         checkoutPage.checkoutAsGuest();
         checkoutPage.clickContinue();
-        checkoutPage.typeFirstName('Tester');
-        checkoutPage.typeLastName('Testowy');
-        checkoutPage.typeEmail('tester@testowy.com');
+        checkoutPage.typeCustomerInfo('Tester', 'Testowy', 'tester@testowy.com');
         checkoutPage.clickContinue();
 
         checkoutPage.checkPresenceOfValidationError(0, mainAddressErrorMessage);
@@ -72,11 +62,7 @@ describe('Shopping Tests', () => {
         checkoutPage.checkPresenceOfValidationError(3, zipCodeErrorMessage);
 
         // try to continue with not enough characters for inputs
-        checkoutPage.typeMainAddress('Te');
-        checkoutPage.typeCity('St');
-        checkoutPage.chooseCountry('Poland');
-        checkoutPage.chooseRegion('Pomorskie');
-        checkoutPage.typeZipCode('Er');
+        checkoutPage.typeCustomerAddress('Te', 'St', 'Pomorskie', 'Er', 'Poland');
         checkoutPage.clickContinue();
 
         checkoutPage.checkPresenceOfValidationError(0, mainAddressErrorMessage);

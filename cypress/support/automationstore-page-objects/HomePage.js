@@ -3,11 +3,13 @@ export class HomePage {
     elements ={
         subnav : () => cy.get('.subnav'),
         searchInput : () => cy.get('#filter_keyword'),
-        shoppingCart : () => cy.get('.topcart')
+        shoppingCart : () => cy.get('.topcart'),
+        category : () => cy.get('.contentpanel')
     }
 
-    goToApparelAndAccessories() {
-        this.elements.subnav().contains('Apparel & accessories').click();
+    goToCategory(subnav, option) {
+        this.elements.subnav().contains(subnav).click();
+        this.elements.category().contains(option).click();
     }
 
     chooseCategory(option) {
